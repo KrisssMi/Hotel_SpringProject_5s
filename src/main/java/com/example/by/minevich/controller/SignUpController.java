@@ -1,6 +1,7 @@
 package com.example.by.minevich.controller;
 
 import com.example.by.minevich.repositories.UserRepository;
+import com.example.by.minevich.services.impl.AuthAndRegServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.ui.Model;

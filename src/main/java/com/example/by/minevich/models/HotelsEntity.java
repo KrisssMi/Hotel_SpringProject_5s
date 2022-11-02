@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "Hotels")
+@Table(name = "hotels")
 @Setter
 @Getter
 @AllArgsConstructor
@@ -31,6 +31,4 @@ public class HotelsEntity {
 
     @Column(name = "Name")
     private String name;
-
-
 }

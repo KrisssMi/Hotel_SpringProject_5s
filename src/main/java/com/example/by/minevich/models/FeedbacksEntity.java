@@ -1,10 +1,19 @@
 package com.example.by.minevich.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Feedbacks")
+@Table(name = "feedbacks")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class FeedbacksEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,65 +39,8 @@ public class FeedbacksEntity {
     @ManyToOne
     @JoinColumn(name = "UserId", referencedColumnName = "Id", nullable = false, insertable = false, updatable = false)
     private UsersEntity usersByUserId;
-    public UsersEntity getUsersByUserId() {
-        return usersByUserId;
-    }
-    public void setUsersByUserId(UsersEntity usersByUserId) {
-        this.usersByUserId = usersByUserId;
-    }
 
     @ManyToOne
     @JoinColumn(name = "HotelId", referencedColumnName = "Id", nullable = false, insertable = false, updatable = false)
     private HotelsEntity hotelsByHotelId;
-    public HotelsEntity getHotelsByHotelId() {
-        return hotelsByHotelId;
-    }
-    public void setHotelsByHotelId(HotelsEntity hotelsByHotelId) {
-        this.hotelsByHotelId = hotelsByHotelId;
-    }
-
-    public FeedbacksEntity(int userId, int hotelId, Date feedbackDate, String comment) {
-        this.userId = userId;
-        this.hotelId = hotelId;
-        this.feedbackDate = feedbackDate;
-        this.comment = comment;
-    }
-
-    public FeedbacksEntity() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getHotelId() {
-        return hotelId;
-    }
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    public Date getFeedbackDate() {
-        return feedbackDate;
-    }
-    public void setFeedbackDate(Date feedbackDate) {
-        this.feedbackDate = feedbackDate;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
 }

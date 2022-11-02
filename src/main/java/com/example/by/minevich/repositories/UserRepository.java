@@ -14,7 +14,7 @@ import java.util.Optional;
 @Transactional
 public interface UserRepository extends CrudRepository<UsersEntity, Long> {
 @Query(value = "SELECT * FROM Users where UserLogin = :UserLogin ",nativeQuery = true)
-    Optional<UsersEntity> findById(@Param("UserLogin") String userLogin);
+    Optional<UsersEntity> findByName(@Param("UserLogin") String userLogin);
 
 @Query(value = "SELECT * FROM Users", nativeQuery = true)
     List<UsersEntity> findAll();

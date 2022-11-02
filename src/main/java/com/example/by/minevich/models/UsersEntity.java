@@ -1,8 +1,17 @@
 package com.example.by.minevich.models;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UsersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,48 +29,4 @@ public class UsersEntity {
 
     @Column(name = "EMail")
     private String eMail;
-
-    public UsersEntity() {
-    }
-    public UsersEntity(boolean isadmin, String username, String password,  String email) {
-        this.isAdmin = isadmin;
-        this.userLogin = username;
-        this.userPassword = password;
-        this.eMail = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
-    public String getUserLogin() {
-        return userLogin;
-    }
-    public void setUserLogin(String userLogin) {
-        this.userLogin = userLogin;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String geteMail() {
-        return eMail;
-    }
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
 }

@@ -12,4 +12,4 @@ public interface AuthAndRegService {
     public Optional<UsersEntity> findByName(String name);
     public void editUser(UsersEntity user);
     public List<UsersEntity> getAll();
-    }
+}
