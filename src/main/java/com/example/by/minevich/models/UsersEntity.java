@@ -1,5 +1,4 @@
 package com.example.by.minevich.models;
-
 import javax.persistence.*;
 
 @Entity
@@ -24,7 +23,6 @@ public class UsersEntity {
 
     public UsersEntity() {
     }
-
     public UsersEntity(boolean isadmin, String username, String password,  String email) {
         this.isAdmin = isadmin;
         this.userLogin = username;

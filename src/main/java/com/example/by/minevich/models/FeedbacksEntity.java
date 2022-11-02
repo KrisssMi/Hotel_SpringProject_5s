@@ -33,7 +33,6 @@ public class FeedbacksEntity {
     public UsersEntity getUsersByUserId() {
         return usersByUserId;
     }
-
     public void setUsersByUserId(UsersEntity usersByUserId) {
         this.usersByUserId = usersByUserId;
     }
@@ -44,7 +43,6 @@ public class FeedbacksEntity {
     public HotelsEntity getHotelsByHotelId() {
         return hotelsByHotelId;
     }
-
     public void setHotelsByHotelId(HotelsEntity hotelsByHotelId) {
         this.hotelsByHotelId = hotelsByHotelId;
     }
@@ -62,7 +60,6 @@ public class FeedbacksEntity {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -70,7 +67,6 @@ public class FeedbacksEntity {
     public int getUserId() {
         return userId;
     }
-
     public void setUserId(int userId) {
         this.userId = userId;
     }
@@ -78,7 +74,6 @@ public class FeedbacksEntity {
     public int getHotelId() {
         return hotelId;
     }
-
     public void setHotelId(int hotelId) {
         this.hotelId = hotelId;
     }
@@ -86,7 +81,6 @@ public class FeedbacksEntity {
     public Date getFeedbackDate() {
         return feedbackDate;
     }
-
     public void setFeedbackDate(Date feedbackDate) {
         this.feedbackDate = feedbackDate;
     }
@@ -94,7 +88,6 @@ public class FeedbacksEntity {
     public String getComment() {
         return comment;
     }
-
     public void setComment(String comment) {
         this.comment = comment;
     }
