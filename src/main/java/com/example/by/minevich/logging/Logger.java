@@ -1,15 +1,37 @@
 package com.example.by.minevich.logging;
 
+import com.example.by.minevich.exception.NonExistedUserException;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component  // аспект - компонент, который будет создан в контексте спринга
 @Aspect     // аспект, который будет использоваться в приложении для логирования
 @Slf4j      // логгер, чтобы не создавать его вручную
 public class Logger {
+    //"Pointcut" - точка, в которой будет вызываться аспект, в данном случае - метод, помеченный аннотацией @Loggable
+
+    @AfterThrowing(value = "Pointcuts.userPostLoginPointcut()", throwing = "exception") // после того, как метод выбросил исключение
+    public void createHotelExceptionLog(NonExistedUserException exception) {
+        Logger logger = LoggerFactory.getLogger(UserController.class);
+        ((org.slf4j.Logger) logger).error(exception.getMessage());
+    }
+
+    @Before (value = "Pointcuts.userPostLoginPointcut()")   // перед вызовом метода
+    public void userPostLoginLog() {
+        Logger logger = LoggerFactory.getLogger(UserController.class);
+        ((org.slf4j.Logger) logger).info("userPostLogin method is called");
+    }
+
+    @After (value = "Pointcuts.userPostLoginPointcut()")    // после вызова метода
+    public void userPostLoginAfterLog() {
+        Logger logger = LoggerFactory.getLogger(UserController.class);
+        ((org.slf4j.Logger) logger).info("userPostLogin method is finished");
+    }
+
+
     @Pointcut("@annotation(Loggable)")  // точка среза, которая будет использоваться в аспекте, чтобы определить, какие методы логировать
     public void webServiceMethod() { }  // метод, который будет использоваться в аспекте, чтобы определить, какие методы логировать
 
