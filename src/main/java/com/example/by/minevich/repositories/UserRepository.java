@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 @Transactional
 public interface UserRepository extends CrudRepository<UsersEntity, Long> {
-@Query(value = "SELECT * FROM Users where UserLogin = :UserLogin ",nativeQuery = true)
+    @Query(value = "SELECT * FROM Users where UserLogin = :UserLogin ",nativeQuery = true)
     Optional<UsersEntity> findByName(@Param("UserLogin") String userLogin);
 
 @Query(value = "SELECT * FROM Users", nativeQuery = true)
@@ -32,9 +32,7 @@ Optional<UsersEntity> findById(@Param("Id") Integer id);
                 @Param("Is_Admin") Boolean isAdmin,
                 @Param("User_Login") String userLogin,
                 @Param("User_Password") String userPassword,
-                @Param("EMail") String email
-
-    );
+                @Param("EMail") String email);
 
     @Modifying
     @Query(value = "Insert into Users values (:Is_Admin,:User_Login,:User_Password,:EMail)", nativeQuery = true)

@@ -19,6 +19,7 @@ public class SignUpController {
     private UserRepository usersEntityRepository;
 
     private final AuthAndRegServiceImpl usersService;
+
     @Autowired
     public SignUpController(AuthAndRegServiceImpl usersService) {
         this.usersService = usersService;

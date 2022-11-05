@@ -57,5 +57,4 @@ public class AuthAndRegServiceImpl implements AuthAndRegService {
     public Optional<UsersEntity> findByName(String name) {
         return userRepository.findByName(name);
     }
-
 }
