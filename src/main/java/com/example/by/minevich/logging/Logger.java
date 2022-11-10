@@ -8,9 +8,9 @@ import org.aspectj.lang.annotation.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component  // аспект - компонент, который будет создан в контексте спринга
-@Aspect     // аспект, который будет использоваться в приложении для логирования
-@Slf4j      // логгер, чтобы не создавать его вручную
+@Component
+@Aspect
+@Slf4j
 public class Logger {
     //"Pointcut" - точка, в которой будет вызываться аспект, в данном случае - метод, помеченный аннотацией @Loggable
 
@@ -25,7 +25,6 @@ public class Logger {
         Logger logger = (Logger) LoggerFactory.getLogger(SignInController.class);
         ((org.slf4j.Logger) logger).info("userPostLogin method is finished");
     }
-
 
     @Pointcut("@annotation(Loggable)")  // точка среза, которая будет использоваться в аспекте, чтобы определить, какие методы логировать
     public void webServiceMethod() { }  // метод, который будет использоваться в аспекте, чтобы определить, какие методы логировать

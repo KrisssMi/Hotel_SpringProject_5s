@@ -36,6 +36,7 @@ public class AuthAndRegServiceImpl implements AuthAndRegService {
 
     @Override
     public void delete(int id) {
+        userRepository.deleteById(id);
     }
 
     @Override

@@ -16,7 +16,7 @@ import java.net.URI;
 @RestController
 public class SignUpController {
     @Autowired
-    private UserRepository usersEntityRepository;
+    private UserRepository userRepository;
 
     private final AuthAndRegServiceImpl usersService;
 

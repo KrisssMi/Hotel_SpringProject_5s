@@ -55,8 +55,8 @@ Optional<UsersEntity> findById(@Param("Id") Integer id);
 
     @Query(value = "EXECUTE DUsersSelectS  :LimitMin,:LimitMax,:Search", nativeQuery = true)
     List<UsersEntity> findPaginated(@Param("LimitMin") Integer limitMin,
-                                    @Param("LimitMax") Integer limitMax;
-    );
+                                    @Param("LimitMax") Integer limitMax);
+
 
     @Query(value = "SELECT Count(*) from Users",nativeQuery = true)
     int countRows();
