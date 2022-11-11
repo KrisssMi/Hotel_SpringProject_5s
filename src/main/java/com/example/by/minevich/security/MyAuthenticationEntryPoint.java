@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 
-@ControllerAdvice
+@ControllerAdvice   // аннотация для обработки исключений
 public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         // 401
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication Failed");
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Authentication Failed");
     }
 
     @ExceptionHandler(value = {AccessDeniedException.class})
