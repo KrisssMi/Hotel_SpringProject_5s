@@ -4,10 +4,12 @@ import com.example.by.minevich.models.UsersEntity;
 import com.example.by.minevich.repositories.UserRepository;
 import com.example.by.minevich.services.GeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UsersService implements GeneralService<UsersEntity> {
     private UserRepository usersRepository;
 
@@ -33,7 +35,7 @@ public class UsersService implements GeneralService<UsersEntity> {
 
     @Override
     public void add(UsersEntity item) {
-        usersRepository.add(item.isAdmin(),item.getUserLogin(),item.getUserPassword(),item.geteMail());
+        usersRepository.add(item.isAdmin(),item.getUserLogin(),item.getUserPassword(),item.getEMail());
     }
 
     @Override

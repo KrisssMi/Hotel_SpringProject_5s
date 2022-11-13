@@ -4,6 +4,7 @@ import com.example.by.minevich.exception.UserNameNotFoundException;
 import com.example.by.minevich.logging.Loggable;
 import com.example.by.minevich.models.UsersEntity;
 import com.example.by.minevich.services.impl.UsersService;
+import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

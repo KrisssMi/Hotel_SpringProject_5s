@@ -1,7 +1,7 @@
 package com.example.by.minevich.logging;
 
 import com.example.by.minevich.controller.SignInController;
-import com.example.by.minevich.exception.NonExistedUserException;
+import com.example.by.minevich.exception.UserNameNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
