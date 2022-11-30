@@ -4,11 +4,10 @@ import javax.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Date;
 
 @Entity
-@Table(name = "rooms")
+@Table(name = "room")
 @Data
 @Getter
 @Setter

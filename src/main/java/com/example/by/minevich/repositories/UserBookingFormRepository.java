@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -35,7 +36,7 @@ public interface UserBookingFormRepository extends JpaRepository<BookingForm, Lo
 
     List<BookingForm> getAllByBooking(boolean booking) throws RepositoryException;
 
-    List<BookingForm> getAllByRoomBookingDateLessThan(String room_bookingDate) throws RepositoryException;
+    List<BookingForm> getAllByRoomBookingDateLessThan(Date room_bookingDate) throws RepositoryException;
 
     @Modifying
     @Query("update BookingForm urf set urf.booking =:booking  where urf.id =:id ")
