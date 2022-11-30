@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MyProjectApplication {
 
     public static void main(String[] args) {
-        Configuration configuration = new Configuration().addAnnotatedClass(UsersEntity.class);
         SpringApplication.run(MyProjectApplication.class, args);
     }
 }

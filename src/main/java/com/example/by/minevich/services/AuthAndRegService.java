@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface AuthAndRegService {
     void register(String username, String email, String password) throws Exception;
-    public void delete(int id);
-    public Optional<UsersEntity> getById(int id);
-    public Optional<UsersEntity> findByName(String name);
-    public void editUser(UsersEntity user);
-    public List<UsersEntity> getAll();
+    void delete(int id);
+    Optional<UsersEntity> getById(int id);
+    Optional<UsersEntity> findByName(String name);
+    void editUser(UsersEntity user);
+    List<UsersEntity> getAll();
 }

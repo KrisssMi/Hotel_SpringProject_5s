@@ -1,3 +1,4 @@
+/*
 package com.example.by.minevich.config;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
@@ -46,10 +47,13 @@ public class JpaConfiguration {
         return entityManagerFactoryBean;
     }
 
-    @Bean
+    */
+/*@Bean
     JpaTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
-    }
+    }*//*
+
 }
+*/

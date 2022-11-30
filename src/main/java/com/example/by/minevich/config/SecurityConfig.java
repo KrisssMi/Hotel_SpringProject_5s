@@ -1,9 +1,8 @@
 package com.example.by.minevich.config;
 
-import com.example.by.minevich.security.MyAuthenticationEntryPoint;
-import com.example.by.minevich.security.jwt.JwtTokenFilter;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,20 +10,20 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
 @Configuration
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final JwtTokenFilter jwtTokenFilter;
+    private final JWTFilter jwtFilter;
 
     static String USER_ENDPOINT = "/user/**";
     static String ADMIN_ENDPOINT = "/admin/**";
 
-    public SecurityConfig(JwtTokenFilter jwtTokenFilter)
+    @Autowired
+    public SecurityConfig(JWTFilter jwtTokenFilter)
     {
-        this.jwtTokenFilter = jwtTokenFilter;
+        this.jwtFilter = jwtTokenFilter;
     }
 
     @Bean
@@ -59,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cacheControl().and();
 
         http.addFilterBefore(
-                jwtTokenFilter,
+                jwtFilter,
                 UsernamePasswordAuthenticationFilter.class
         );
     }
