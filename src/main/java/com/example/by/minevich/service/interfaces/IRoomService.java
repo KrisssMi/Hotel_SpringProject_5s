@@ -30,5 +30,6 @@ public interface IRoomService {
             Long id,
             String name,
             String description,
+            int capacity,
             int cost) throws ServiceException, com.example.by.minevich.exception.ServiceException;
 }

@@ -67,7 +67,7 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public void updateRoomById(Long id, String name, String description, int cost) throws ServiceException {
+    public void updateRoomById(Long id, String name, String description, int capacity, int cost) throws ServiceException {
         try {
             roomRepository.updateRoomById(id, name, description, cost);
         } catch (RepositoryException e) {
