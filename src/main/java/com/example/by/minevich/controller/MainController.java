@@ -29,7 +29,6 @@ public class MainController {
     public List<User> getUsers() throws ControllerException {
         try {
             System.out.println("getting all users");
-
             return userService.findAll();
         } catch (Exception e) {
             System.out.println("error get all users");

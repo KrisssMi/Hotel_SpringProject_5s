@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <!--<script type="text/javascript" src="../static/js/log.js" th:src="@{../js/log.js}"></script>-->
+    <script type="text/javascript" th:src="@{/js/reg.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+</head>
+<body>
+
+<form method="get" action="javascript: void(0);" id="login-form" class="login-form" autocomplete="off" role="main">
+    <h1 class="a11y-hidden">Login Form</h1>
+    <div>
+        <label class="label-email">
+            <input type="email" class="text" id="email" name="email" placeholder="Email" tabindex="1" required />
+            <span class="required">Email</span>
+        </label>
+    </div>
+    <div>
+        <label class="label-email">
+            <input type="text" class="text" id="login" name="login" placeholder="Login" tabindex="2" required />
+            <span class="required">Login</span>
+        </label>
+    </div>
+    <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
+    <label class="label-show-password" for="show-password">
+        <span>Show Password</span>
+    </label>
+    <div>
+        <label class="label-password">
+            <input type="text" class="text" name="password" id="password" placeholder="Password" tabindex="3" required />
+            <span class="required">Password</span>
+        </label>
+    </div>
+    <input type="submit" value="Register" th:onclick="reg()" th:method="post">
+    <div class="email">
+        <a href="/" style="color: #dd6666">Home</a> or <a href="/loginin" style="color: #dd6666">Sign In</a>
+    </div>
+    <div id="message" class="message"></div>
+    <figure aria-hidden="true">
+        <div class="person-body"></div>
+        <div class="neck skin"></div>
+        <div class="head skin">
+            <div class="eyes"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="hair"></div>
+        <div class="ears"></div>
+        <div class="shirt-1"></div>
+        <div class="shirt-2"></div>
+    </figure>
+</form>
+</body>
+</html>

@@ -8,6 +8,7 @@ import com.example.by.minevich.service.interfaces.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -69,7 +70,7 @@ public class RoomService implements IRoomService {
     @Override
     public void updateRoomById(Long id, String name, String description, int capacity, int cost) throws ServiceException {
         try {
-            roomRepository.updateRoomById(id, name, description, cost);
+            roomRepository.updateRoomById(id, name, description,capacity, cost);
         } catch (RepositoryException e) {
             throw new ServiceException(e);
         }

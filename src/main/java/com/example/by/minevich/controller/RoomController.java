@@ -58,7 +58,7 @@ public class RoomController {
     }
 
     @PutMapping("/admin/updateRoom")
-    public ResponseEntity<?> updateScooter(@RequestBody RoomRequestNoRent RoomRequestNoRent)throws ControllerException {
+    public ResponseEntity<?> updateRoom(@RequestBody RoomRequestNoRent RoomRequestNoRent) throws ControllerException {
         try {
             Room room = roomService.getById(RoomRequestNoRent.getId());
             roomService.updateRoomById(

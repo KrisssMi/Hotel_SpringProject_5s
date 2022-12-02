@@ -24,11 +24,12 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
     boolean existsByName(String name) throws RepositoryException;
 
     @Modifying
-    @Query("update Room c set c.name=:name, c.description=:description, c.cost=:cost where c.id=:id")
+    @Query("update Room c set c.name=:name, c.description=:description, c.capacity=:capacity, c.cost=:cost where c.id=:id")
     void updateRoomById(
             @Param("id") Long id,
             @Param("name") String name,
             @Param("description") String description,
+            @Param("capacity") int capacity,
             @Param("cost") int cost
     ) throws RepositoryException;
 }
