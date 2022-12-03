@@ -1,6 +1,6 @@
 var start = 0;
-var showCount = 8;
-var end = 8;
+var showCount = 4;
+var end = 4;
 
 
 function isTokenExist() {
@@ -52,7 +52,6 @@ async function reg() {
         let res = await regUser(data);
         if (res.ok) {
             mes.innerHTML = "Registration success";
-            //window.location.replace(window.location.origin);
         } else {
             mes.innerHTML = "This user already exist";
         }
