@@ -1,5 +1,6 @@
 package com.example.by.minevich.controller;
 
+import com.example.by.minevich.config.MailConfig;
 import com.example.by.minevich.dto.AuthRequest;
 import com.example.by.minevich.dto.AuthResponse;
 import com.example.by.minevich.dto.RegistrationRequest;
@@ -7,6 +8,7 @@ import com.example.by.minevich.dto.UserResponse;
 import com.example.by.minevich.exception.ControllerException;
 import com.example.by.minevich.jwt.JwtProvider;
 import com.example.by.minevich.models.User;
+import com.example.by.minevich.service.MailSender;
 import com.example.by.minevich.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ public class MainController {
     private UserService userService;
     @Autowired
     private JwtProvider jwtProvider;
+    @Autowired
+    MailSender mailSender;
 
     @PostMapping("/users")
     public List<User> getUsers() throws ControllerException {
@@ -78,7 +82,7 @@ public class MainController {
                 String message = String.format("Hello, %s!\n " +
                                 "Welcome to my Java project! Please, visit next link: http://localhost:8080/activate/%s",
                         user.getLogin(), user.getActivationCode());
-                //mailSender.sendMail(user.getEmail(), "Activation code", message);
+                mailSender.sendMail(user.getEmail(), "Activation code", message);
             }
             return new ResponseEntity<>(HttpStatus.OK);
         }
