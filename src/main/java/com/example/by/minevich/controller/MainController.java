@@ -80,7 +80,7 @@ public class MainController {
             userService.saveUser(user);
             if(!user.getEmail().isEmpty()){
                 String message = String.format("Hello, %s!\n " +
-                                "Welcome to my Java project! Please, visit next link: http://localhost:8080/activate/%s",
+                                "Welcome to my Java project!",
                         user.getLogin(), user.getActivationCode());
                 mailSender.sendMail(user.getEmail(), "Activation code", message);
             }
@@ -89,22 +89,6 @@ public class MainController {
         else {
             return new ResponseEntity<>(HttpStatus.FOUND);
         }
-    }
-
-    @GetMapping("/activate/{code}")
-    public ModelAndView activate(Model model, @PathVariable String code) {
-        boolean isActivated = userService.activateUser(code);
-
-        if (isActivated) {
-            model.addAttribute("message", "User successfully activated");
-
-        } else {
-            model.addAttribute("message", "Activation code is not found!");
-        }
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login2");
-        return modelAndView;
     }
 
     @PostMapping("/authorized")
@@ -116,7 +100,6 @@ public class MainController {
     @PostMapping("/getUser")
     public UserResponse getUser(@RequestHeader(name = "Authorisation") String jwt) throws ControllerException {
         try {
-
             String userName = jwtProvider.getLoginFromToken(jwt.substring(7));
             User user = userService.findByLogin(userName);
 

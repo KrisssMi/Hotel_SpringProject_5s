@@ -5,8 +5,10 @@ async function load() {
     await genNext();
 
     if (await isAuth()) {
+        console.log("asdasdsa");
         genLogout();
         if (await isAdmin()) {
+            console.log("admin")
             await genRoom();
             await genAdminCreate();
             await genAdminUpdate();

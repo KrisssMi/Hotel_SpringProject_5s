@@ -16,7 +16,7 @@ public class UserTest {
     @Test
     public void existsUserByLogin() {
         try {
-            Assert.assertTrue(userService.existsUserByLogin("KrisMi"));
+            Assert.assertTrue(userService.existsUserByLogin("Kristi"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ public class UserTest {
     @Test
     public void existsUserByLoginAndPassword(){
         try {
-            Assert.assertTrue(userService.existsUserByLoginAndPassword("KrisMi","krismi"));
+            Assert.assertTrue(userService.existsUserByLoginAndPassword("Kristi","Kristi"));
         } catch (Exception e) {
             e.printStackTrace();
         }
